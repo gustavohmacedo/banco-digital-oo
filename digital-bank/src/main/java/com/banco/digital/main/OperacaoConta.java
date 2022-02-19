@@ -38,9 +38,6 @@ public class OperacaoConta {
         cc.imprimirExtrato();
 
         System.out.println("\n");
-        cp.imprimirExtrato();
-
-        System.out.println("\n");
 
         List<Conta> contas = Arrays.asList(cc, cp);
         List<Cliente> clietes = Arrays.asList(cliente01, cliente02);

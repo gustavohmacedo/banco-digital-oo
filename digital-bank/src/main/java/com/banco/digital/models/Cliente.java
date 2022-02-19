@@ -5,10 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 @AllArgsConstructor
+@Setter
+@Getter
 public class Cliente {
 
-    @Getter @Setter private String nome;
-    @Getter @Setter private String email;
-    @Getter @Setter private String telefone;
+    private String nome;
+    private String email;
+    private String telefone;
 
 }
