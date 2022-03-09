@@ -1,5 +1,6 @@
 package com.banco.digital.main;
 
+import com.banco.digital.exceptions.SaldoInsuficienteException;
 import com.banco.digital.models.Banco;
 import com.banco.digital.models.Cliente;
 import com.banco.digital.models.Conta;
@@ -20,7 +21,13 @@ public class OperacaoConta {
         cc.imprimirExtrato();
         cc.depositar(50);
         cc.imprimirExtrato();
-        cc.sacar(10);
+
+        try {
+            cc.sacar(51);
+        } catch (SaldoInsuficienteException ex) {
+            System.out.println("Exception" + ex.getMessage());
+        }
+
         cc.imprimirExtrato();
 
         System.out.println();
@@ -29,9 +36,20 @@ public class OperacaoConta {
         cp.imprimirExtrato();
         cp.depositar(150);
         cp.imprimirExtrato();
-        cp.sacar(100);
+
+        try {
+            cp.sacar(150);
+        } catch (SaldoInsuficienteException ex) {
+            System.out.println("Exception: " + ex.getMessage());
+        }
         cp.imprimirExtrato();
-        cp.transferir(45, cc);
+
+        try {
+            cp.transferir(45, cc);
+        } catch (SaldoInsuficienteException ex) {
+            System.out.println("Exception: " + ex.getMessage());
+        }
+
         cp.imprimirExtrato();
 
         System.out.println("\n");
